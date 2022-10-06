@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Payment_Mode_Alert</fullName>
+        <description>Payment Mode Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Payment_Remainder</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_Order_Cancelled</fullName>
+        <description>Send Email Order Cancelled</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Cancelled</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_Customer</fullName>
+        <description>Send Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Create_Info</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_Customer_for_order_processed</fullName>
+        <description>Send Email To Customer for order processed</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Processed</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_customer_Regarding_Cancellation_Of_Order</fullName>
+        <description>Send Email To customer Regarding Cancellation Of Order</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Cancelled</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_customer_Regarding_Completion_Of_Delivery</fullName>
+        <description>Send Email To customer Regarding Completion Of Delivery</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Delivered</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_customer_Regarding_Delivery</fullName>
+        <description>Send Email To customer Regarding Delivery</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Out_For_Delivery</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_customer_Regarding_Shipment</fullName>
+        <description>Send Email To customer Regarding Shipment</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Shipped</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Reminder_For_Payment_to_Customer</fullName>
+        <description>Send Reminder For  Payment to Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Payment_Reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>Survey_Alert</fullName>
+        <description>Survey Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_for_Survey</template>
+    </alerts>
+    <rules>
+        <fullName>Order Cancel Email Alert</fullName>
+        <actions>
+            <name>Send_Email_To_customer_Regarding_Cancellation_Of_Order</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Order Create Email Alert</fullName>
+        <actions>
+            <name>Send_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Order Delivered Email Alert</fullName>
+        <actions>
+            <name>Send_Email_To_customer_Regarding_Completion_Of_Delivery</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>&quot;Delivered,&quot;</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Order Out For Delivery</fullName>
+        <actions>
+            <name>Send_Email_To_customer_Regarding_Delivery</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>&quot;Shipped,&quot;</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Order Processed</fullName>
+        <actions>
+            <name>Send_Email_To_Customer_for_order_processed</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>&quot;Dispatched,&quot;,&quot;In Process,&quot;</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Order Shipped Email Alert</fullName>
+        <actions>
+            <name>Send_Email_To_customer_Regarding_Shipment</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>&quot;Shipped,&quot;</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Payment Mode</fullName>
+        <actions>
+            <name>Payment_Mode_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.PaymentMethod__c</field>
+            <operation>notEqual</operation>
+            <value>COD</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Payment Reminder Email Alert</fullName>
+        <actions>
+            <name>Send_Reminder_For_Payment_to_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.PaymentMethod__c</field>
+            <operation>notEqual</operation>
+            <value>COD</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Survey Link</fullName>
+        <actions>
+            <name>Survey_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>&quot;Delivered,&quot;</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

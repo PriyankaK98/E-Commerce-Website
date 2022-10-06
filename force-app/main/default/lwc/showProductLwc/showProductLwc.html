@@ -1,0 +1,17 @@
+<template>
+        <lightning-layout class="background slds-box slds-theme_shade" horizontal-align="space" multiple-rows >
+            <lightning-layout-item size="12">
+                <div class="slds-align_absolute-center slds-theme_alert-texture" style="background-color: lightgray;">
+                    <c-search-product onsearch={searchProduct}></c-search-product>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="3">
+                <div class="slds-box slds-theme_shade" style="height: 730px; background-color: lightgray;">
+                    <c-categories-lwc onsendid={getId}></c-categories-lwc>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <c-product-tiles prod-ids={prodId}></c-product-tiles>
+            </lightning-layout-item>
+        </lightning-layout>
+</template>

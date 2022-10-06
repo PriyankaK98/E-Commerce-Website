@@ -1,0 +1,14 @@
+<template>
+    <div>
+    <lightning-card>
+        <template for:each={bill.data} for:item="add">
+            <div key={add} style="margin-left: 20px;">Billinging Address :  
+            {add.Name}
+            {add.BillingStreet},
+            {add.BillingCity} {add.BillingState},
+            {BillingCountry} - {BillingPostalCode}
+        </div>
+        </template>
+    </lightning-card>
+</div>
+</template>

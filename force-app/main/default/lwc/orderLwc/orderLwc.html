@@ -1,0 +1,46 @@
+<template>
+    <lightning-card>
+        <div slot="title">
+            <div>
+                <lightning-input type ="text" value={searchValue} placeholder="Order Number" onchange={searchKeyword}></lightning-input>
+            </div>
+        </div>
+        <div slot="actions" >
+            <div class="slds-align_absolute-center">
+                <div class="slds-align_absolute-center" style="margin-right: 10px;">
+                    <lightning-input type ="date" value={firstValue} placeholder="Search from StartDate" onchange={firstKeyword}></lightning-input>
+                </div>
+                <div class="slds-align_absolute-center" style="margin-right: 10px;">
+                    <lightning-input type ="date" value={secondValue} placeholder="Search from LastDate" onchange={secondKeyword}></lightning-input>
+                </div>
+                <div class="slds-align_absolute-center" style="margin-right: 10px; margin-top: 20px;">
+                    <lightning-button  label="Search" onclick={handleOrderbyDate} variant="Brand"></lightning-button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <lightning-layout horizontal-align="center" multiple-rows>
+                <lightning-layout-item size="12">
+                    <div class="slds-align_absolute-center" style="background-color: rgb(231, 235, 237);">
+                        <div class="slds-align_absolute-center">
+                            <lightning-button label="CANCEL" variant="destructive" onclick={handleDelete} ></lightning-button>
+                            <lightning-button label="REORDER" variant="success" onclick={viewOrder} style="margin-left: 10px;"></lightning-button>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <lightning-datatable data={Orders.data} 
+                    columns={columns} 
+                    key-field="id" 
+                    variant="brand" 
+                    onrowselection={handleChange}></lightning-datatable>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <div style="text-align:center;">
+                        <c-pagination-comp onprevious={handlePrev} onnext={handleNext}></c-pagination-comp>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>  
+</template>

@@ -1,0 +1,8 @@
+<template>
+    <c-show-order order={orders.data}></c-show-order>
+    <template if:false={orders.data}>
+        <div class="slds-box slds-theme_shade slds-align_absolute-center">
+              No Open Order Available 
+        </div>
+    </template>
+</template>

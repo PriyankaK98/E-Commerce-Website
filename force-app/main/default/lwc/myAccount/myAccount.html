@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="My Account">
+        <ul>
+            <template if:true={account.data}>
+                <template for:each={account.data} for:item="acc">
+                    <li key={acc.Id}>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-tile label={acc.Name} type="media">
+                                <lightning-icon slot="media" icon-name="standard:account"></lightning-icon>
+                                <p class="slds-truncate" title={acc.Phone}>{acc.Phone}</p>
+                                <p class="slds-truncate" title={acc.EmailId__c}>{acc.EmailId__c}</p>
+                                
+
+                            </lightning-tile>
+
+                        </div>
+                    </li>
+                </template>
+            </template>
+        </ul>
+    </lightning-card>
+
+</template>

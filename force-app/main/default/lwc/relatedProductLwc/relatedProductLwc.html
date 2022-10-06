@@ -1,0 +1,13 @@
+<template>
+    <template if:true={productList}>
+        <lightning-layout multiple-rows horizontal-align="center" style="background-color: rgb(231, 235, 237);">
+            <template for:each={productList} for:item="prod">
+                <lightning-layout-item key={prod.id} size="6">
+                    <div class="slds-box" style="margin: 10px;background-color: darkgray;">
+                        <c-product-tile actions product={prod}></c-product-tile>
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout> 
+    </template>
+</template>

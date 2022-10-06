@@ -1,0 +1,50 @@
+<template >
+    
+    <div style=" background-color:rgb(231, 235, 237);">
+        <br>
+        <lightning-layout horizontal-align="space" style="margin-left: 45px; margin-right:45px;" >
+            <lightning-layout-item padding="around-small">
+                <img src={Women} style="height: 180px; width: 180px;">
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <img src={Men} style="height: 180px; width: 180px;">
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <img src={Electronics} style="height: 180px; width: 180px;">
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <img src={Footwear} style="height: 180px; width: 180px;">
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <img src={Cosmetics} style="height: 180px; width: 180px;">
+            </lightning-layout-item>
+        </lightning-layout>
+        <br>
+        <lightning-layout horizontal-align="space" style="margin-left: 30px; margin-right:55px;">
+            <lightning-layout-item>
+                <h2>Women Clothing</h2>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <h2>Men Clothing</h2>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <h2>Electronics</h2>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <h2>Footwear</h2>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <h2>Cosmetics</h2>
+            </lightning-layout-item>
+        </lightning-layout>
+        <br>
+        <br>
+        <br>
+        <lightning-button label='Explore' onclick={goToProductList} variant=" brand " class="slds-align_absolute-center"></lightning-button>
+        <br>
+        <br>
+        <br>
+        
+    </div>
+
+</template>

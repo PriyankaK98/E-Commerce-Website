@@ -1,0 +1,45 @@
+<template>
+    <div style="background-color: rgb(231, 235, 237);">
+    <lightning-layout multiple-rows horizontal-align="center" >
+        <lightning-layout-item size="12">
+            <div class="slds-box slds-align_absolute-center shadeBackground">
+                <div class="slds-align_absolute-center shadeBackground" >
+                    <p class="slds-text-heading_medium" style="font-weight: bold;">Amount : {amount} INR</p>
+                </div>
+                <div class="slds-align_absolute-center shadeBackground">
+                    <p class="slds-text-heading_medium" style="font-weight: bold;">Address : {address}</p>
+                </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <div class="slds-box slds-theme_shade slds-align_absolute-center" style="background-color: darkgray;">
+                <p class="slds-text-heading_large" style="font-weight: bold;"> Payment Mode </p>
+            </div>
+        </lightning-layout-item>
+        <template for:each={methods.data} for:item="item">
+            <lightning-layout-item key={item}>
+                <fieldset>
+                    <div class="slds-align_absolute-center slds-form-element__control slds-box shadeBackground"
+                        style="height:150px; width:200px; margin: 10px;">
+                        <span class="slds-radio">
+                            <input name="radiogroup" id={item} type="radio" value={item}
+                                onchange={handleSelected} />
+                            <label class="slds-radio__label" for={item}>
+                                <span class="slds-radio_faux"></span>
+                                <span class="slds-align_absolute-center slds-text-heading_large slds-form-element__label" style="font-weight: bold;">
+                                    {item}
+                                </span>
+                            </label>
+                        </span>
+                    </div>
+                </fieldset>
+            </lightning-layout-item>
+        </template>
+        <lightning-layout-item size="12">
+            <div class="slds-box slds-theme_shade slds-align_absolute-center" style="background-color: darkgray;">
+                <c-confirmation-lwc positive-label="Proceed" button-label="Proceed To Buy" message="Continue to Purchase" onsave={proceedForOrder}></c-confirmation-lwc>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+</template>

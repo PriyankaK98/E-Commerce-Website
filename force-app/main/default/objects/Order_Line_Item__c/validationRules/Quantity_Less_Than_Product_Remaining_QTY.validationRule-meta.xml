@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_Less_Than_Product_Remaining_QTY</fullName>
+    <active>true</active>
+    <errorConditionFormula>Product__r.RemainingQuantity__c &lt; Quantity__c</errorConditionFormula>
+    <errorDisplayField>Quantity__c</errorDisplayField>
+    <errorMessage>Product Not Available in Required Quantity</errorMessage>
+</ValidationRule>

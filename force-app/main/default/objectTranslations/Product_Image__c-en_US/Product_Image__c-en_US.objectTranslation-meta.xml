@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Image</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Images</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Rule_For_None_Image_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Rule_For_Static_Resource_Image_Type</name>
+    </validationRules>
+</CustomObjectTranslation>

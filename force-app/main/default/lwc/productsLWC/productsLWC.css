@@ -1,0 +1,22 @@
+.bigText{
+    font-size: 50px;
+    font-weight: bold;
+}
+.mediumText{
+    font-size: 30px;
+    font-weight: bold;
+}
+.smallText{
+    font-size: 25px;
+}
+
+.fontBold{
+    font-weight: bold;
+}
+.crouselSize{
+    height: 480px;
+    width : 400px;
+}
+.background{
+    background-color: gray;
+}

@@ -1,0 +1,22 @@
+<template>
+    <lightning-tabset variant="vertical">
+        <lightning-tab label="User Details" icon-name={contactIcon}>
+            <c-my-profile></c-my-profile>
+        </lightning-tab>
+        <lightning-tab label="My Account" icon-name={accountIcon}>
+            <c-my-account></c-my-account>
+        </lightning-tab>
+        <lightning-tab label="Open Order" icon-name={ordersIcon}>
+            <c-open-order-lwc></c-open-order-lwc>
+        </lightning-tab>
+        <lightning-tab label="My Address" icon-name={addressIcon}>
+            <c-address-details></c-address-details>
+        </lightning-tab>
+        <lightning-tab label="My Cart" icon-name={cartIcon}> 
+            <c-display-cart-items></c-display-cart-items> 
+        </lightning-tab>
+
+        
+    </lightning-tabset>
+    
+</template>

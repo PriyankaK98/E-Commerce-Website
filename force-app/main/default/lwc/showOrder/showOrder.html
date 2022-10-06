@@ -1,0 +1,76 @@
+<template>
+    <template if:true={order}>
+        <template for:each={order} for:item="ord">
+            <div key={ord.Id} class="container slds-align_absolute-center" style="background-color: darkgray;">
+                <div class="slds-align_absolute-center slds-text-heading_medium" style="font-weight: bold;">
+                    Total Items : {ord.Totalitems__c}
+                </div>
+                <template if:true={proceed}>
+                    <lightning-button value={ord.Id} variant="brand" label="Ok" onclick={NavigateToHome}></lightning-button>
+                </template>
+                <template if:false={proceed}>
+                    <lightning-button value={ord.Id} variant="brand" label="Proceed" onclick={NavigateToAddress}>
+                    </lightning-button>
+                </template>
+                <div class="slds-align_absolute-center slds-text-heading_medium" style="font-weight: bold;">
+                    Total Amount : {ord.Total__c} INR
+                </div>
+            </div>
+            <template if:true={ord.Order_Line_Items__r}>
+                <lightning-layout key={ord.Id} horizontal-align="center" multiple-rows>
+                    <template for:each={ord.Order_Line_Items__r} for:item="oli">
+                        <lightning-layout-item size="4" key={oli.Id}>
+                            <div class="slds-box" style="background-color: lightgray; margin: 10px;">
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="12">
+                                        <div class="slds-text-heading_small"
+                                            style="background-color: lightgray; font-weight: bold;">
+                                            {oli.Name}
+                                        </div>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="5">
+                                        <c-product-image prod-id={oli.Product__c}></c-product-image>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="7">
+                                        <div class="slds-box slds-text-heading_small"
+                                            style="background-color: lightgray; font-weight: bold;">
+                                            Quantity : {oli.Quantity__c}
+                                        </div>
+                                        <div class="slds-box slds-text-heading_small"
+                                            style="background-color: lightgray; font-weight: bold;">
+                                            Total : {oli.Total__c}
+                                        </div>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </template>
+            <div key={ord.Id} class="container slds-align_absolute-center" style="background-color: darkgray;">
+                <template if:true={ord.PaymentMethod__c}>
+                    <div class="slds-align_absolute-center slds-text-heading_medium" style="font-weight: bold;">
+                        Payment Mode : {ord.PaymentMethod__c}
+                    </div>
+                </template>
+                <template if:true={proceed}>
+                    <lightning-button value={ord.Id} variant="brand" label="Ok" onclick={NavigateToHome}></lightning-button>
+                </template>
+                <template if:false={proceed}>
+                    <lightning-button value={ord.Id} variant="brand" label="Proceed" onclick={NavigateToAddress}>
+                    </lightning-button>
+                </template>
+                <template if:true={ord.ExpectedDate__c}>
+                    <div class="slds-align_absolute-center slds-text-heading_medium" style="font-weight: bold;">
+                        Delivery Date : {ord.ExpectedDate__c}
+                    </div>
+                </template>
+            </div>
+            <div key={ord.Id} class="slds-box slds-align_absolute-center slds-text-heading_medium" style="font-weight: bold; background-color: white;">
+                <template if:true={ord.Shipping_Address__c}>
+                    Shipping Address : {ord.Shipping_Address__c}
+                </template>
+            </div>
+        </template>
+    </template>
+</template>

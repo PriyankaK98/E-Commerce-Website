@@ -1,0 +1,72 @@
+<template>
+    <template if:true={productList}>
+
+        <template for:each={productList} for:item="prod">
+            <lightning-card key={prod.Id} title={prod.name} class="slds-theme_shade">
+                <div class="slds-align_absolute-center slds-box slds-theme_shade">
+                    <p class="fontBold">Quantity : {qty}</p>
+                </div>
+                <div slot="actions">
+                    <lightning-button-icon disabled={availability} onclick={addQty} size="large" icon-name="utility:add" variant="brand" alternative-text="Add"></lightning-button-icon>
+                    <lightning-button-icon disabled={availability} onclick={minusQty} size="large" icon-name="utility:minimize_window" variant="brand" alternative-text="Minus"></lightning-button-icon>
+                    <c-add-to-cart availability={availability} product={prod.Id} quantity={qty}></c-add-to-cart>
+                </div>
+                <div style=" background-color: lightgray">
+                <lightning-layout horizontal-align="center" key={prod.Id} >
+                    <lightning-layout-item size="5">
+                        <div class="crouselSize" >
+                            <lightning-carousel key={prod.Id}>
+                                <template if:true={prod.imgs}>
+                                    <template for:each={prod.imgs} for:item="img">
+                                        <lightning-carousel-image src={img.URL__c} header={img.Name}
+                                            alternative-text="No Image Found" href="javascript:void(0);" key={prod.id}>
+                                        </lightning-carousel-image>
+                                    </template>
+                                </template>
+                            </lightning-carousel>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <div class="slds-align_absolute-center crouselSize">
+                            <lightning-card class="slds-box background">
+                            <lightning-layout horizontal-align="center" multiple-rows >
+                                <lightning-layout-item size="12" style="width:600px; height:450;">
+                                    <div class="slds-box slds-theme_shade ">
+                                        <p class="slds-text-heading_large fontBold">{prod.name}</p>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" style="width:600px; height:450;">
+                                    <div class="slds-box slds-theme_shade">
+                                        <p class="slds-text-heading_large fontBold">MRP:  ₹ {prod.price}</p>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" style="width:600px; height:450;">
+                                    <div class="slds-box slds-theme_shade">
+                                        <p class="slds-text-heading_large fontBold fontItalic">Details:</p>
+                                        <p class="slds-text-heading_medium fontBold">{prod.description}</p>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" style="width:600px; height:450;">
+                                    <div class="slds-box slds-theme_shade">
+                                        <template if:true={prod.availability}>
+                                            <p class="slds-text-heading_large slds-text-color_destructive fontBold">Out Of Stock</p>
+                                           </template>
+                                           <template if:false={prod.availability}>
+                                            <p class="slds-text-heading_large slds-text-color_success fontBold">In Stock</p>
+                                           </template>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        
+                        </lightning-card>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+            </lightning-card>
+            <lightning-card title="Related Products" class="slds-theme_shade" key={prod.Id}>
+                <c-related-product-lwc cat={prod.cat}></c-related-product-lwc>
+            </lightning-card>
+        </template>
+    </template>
+</template>

@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Personal Information">
+        <ul>
+            <template if:true={contact.data}>
+                <template for:each={contact.data} for:item="con">
+                    <li key={con.id}>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-tile label={con.Name} type="media">
+                                <lightning-icon slot="media" icon-name="standard:contact"></lightning-icon>
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        Phone:{con.Phone}
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        Email:{con.Email}
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        Birthdate:{con.Birthdate}
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        Street:{con.MailingStreet}
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        City:{con.MailingCity}
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        State:{con.MailingState}
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        postalCode:{con.MailingPostalCode}
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                        Country:{con.MailingCountry}
+                                    </div>
+
+                                </div>
+                                
+                               <!--<p class="slds-truncate"  title="Phone">{con.Phone}</p>
+                                <p class="slds-truncate" title={con.Email}>{con.Email}</p>
+                                <p class="slds-truncate" title={con.Birthdate}>{con.Birthdate}</p>--> 
+                                
+
+                                
+
+                            </lightning-tile>
+                        </div>
+
+                    </li>
+
+
+                </template>
+            </template>
+        </ul>
+    </lightning-card>
+    
+
+</template>

@@ -1,0 +1,39 @@
+<template>
+    <lightning-layout multiple-rows horizontal-align="center" class="layoutBackground">
+        <lightning-layout-item size="12">
+            <div class="slds-box slds-theme_shade slds-align_absolute-center">
+                <c-add-new-address onrefresh={refreshPage}></c-add-new-address>
+                <template if:true={deliveryButton}>
+                    <lightning-button class="slds-m-left_x-small" variant="brand" onclick={proceedForPayment}
+                        label="Deliver"></lightning-button>
+                </template>
+            </div>
+            <br>
+            <br>
+        </lightning-layout-item>
+        <template for:each={address.data} for:item="item">
+            <lightning-layout-item key={item}>
+                <fieldset key={Id}>
+                    <div class="slds-form-element__control slds-box slds-theme_shade addrMargin"
+                        style="height:160px; width:250px;">
+                        <c-delete-record record-id={item.Id} onrefresh={refreshPage}></c-delete-record>
+                        <c-add-new-address record={item.Id} onrefresh={refreshPage}></c-add-new-address>
+                        </br>
+                        <span class="slds-radio">
+                            <input name="radiogroup" id={item.Id} type="radio" value={item.Id}
+                                onchange={handleSelected} />
+                            <label class="slds-radio__label" for={item.Id}>
+                                <span class="slds-radio_faux"></span>
+                                <span class="slds-form-element__label">
+                                    {item.Name}<br />{item.Street__c} {item.City__c} , <br />{item.Landmark__c}
+                                    {item.State__c} , <br />
+                                    {item.PostalCode__c}
+                                </span>
+                            </label>
+                        </span>
+                    </div>
+                </fieldset>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,47 @@
+<template>
+        <lightning-card class="slds-theme_shade slds-border_top">
+            <lightning-layout horizontal-align="left" style="background-color: lightgray;">
+                <lightning-layout-item >
+                    <div class="tile">
+                        <div class="innertile">
+                            <template for:each={product.ProductImages__r} for:item="img">
+                                <img src={img.URL__c} class="innertile" key={product.id} />
+                            </template>
+                            <div class="lower-Portion">
+                                {product.Name}
+                            </div>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item >
+                       <div class=" slds-text-heading_small" style="margin-left: 3px;">
+                           <div>Price : ₹ {product.Price__c}</div>            
+                       </div>
+                       <div>
+                            <div style="margin-left: 3px;" class="slds-text-heading_small">Description : </div>
+                            <p style="margin-left: 3px;">{product.Description}</p>
+                            
+                       </div>
+                       <div>
+                           <template if:true={product.availability}>
+                            <p class="slds-align_absolute-center slds-text-heading_small slds-text-color_destructive">Out Of Stock</p>
+                           </template>
+                           <template if:false={product.availability}>
+                            <p class="slds-align_absolute-center slds-text-heading_small slds-text-color_success">In Stock</p>
+                           </template>
+                        </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <template if:true={actions}>
+                <div slot="actions">
+                    <lightning-button-icon style="margin-right: 5px" value={product.Id} onclick={sendId} size="large" icon-name="utility:preview" variant="brand" alternative-text="Minus"></lightning-button-icon>
+                    <c-add-to-cart availability={product.availability} product={product.Id} quantity={qty}></c-add-to-cart>
+                </div>
+                <div class="slds-align_absolute-center slds-theme_shade" slot="title">
+                    <lightning-button-icon disabled={product.availability} style="margin-right: 10px" value={product.RemainingQuantity__c} onclick={addQty} size="large" icon-name="utility:add" variant="brand" alternative-text="Add"></lightning-button-icon>
+                    {qty}
+                    <lightning-button-icon disabled={product.availability} style="margin-left: 10px"  value={product.RemainingQuantity__c} onclick={minusQty} size="large" icon-name="utility:minimize_window" variant="brand" alternative-text="Minus"></lightning-button-icon>
+                </div>
+            </template>
+        </lightning-card>
+</template>

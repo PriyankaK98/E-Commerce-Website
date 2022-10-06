@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-box" onclick={f1}>
+        Hii
+    </div>
+    <lightning-card key={prod.id} title={cart.Product__r.Name}>
+        <div slot="actions">
+            <lightning-button-icon onclick={addQty} id={cart.Id} size="large"
+                icon-name="utility:add" variant="brand" alternative-text="Add">
+            </lightning-button-icon>
+
+            <lightning-button-icon onclick={minusQty} id={cart.Id} size="large"
+                icon-name="utility:minimize_window" variant="brand" alternative-text="Minus">
+            </lightning-button-icon>
+            <lightning-button-icon onclick={handleContactDelete} id={cart.Id}
+                icon-name="utility:delete" variant="destructive" alternative-text="Delete"
+                class="deleteButton" title="Delete"></lightning-button-icon>
+        </div>
+        <div style="margin-left:20px;">
+            <h2 class="bigText">{cart.Product__r.Description}</h2>
+            <h2 class="bigText">{cart.Product__r.Price__c}</h2>
+        </div>
+        <div style="margin-left:20px;">
+            <h2 id={cart.id}>Quantity: {cart.Quantity__c}</h2>
+        </div>
+    </lightning-card>
+</template>

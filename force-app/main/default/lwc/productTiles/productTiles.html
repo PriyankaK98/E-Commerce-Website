@@ -1,0 +1,16 @@
+<template>
+    <div class="c-container">
+            <lightning-layout horizontal-align="space" multiple-rows>
+                <template if:true={productList}>
+                    <template for:each={productList} for:item="Prod">
+                        <lightning-layout-item key={Prod.Id}  padding="around-small" size="4">
+                                <c-product-tile actions key={Prod.Id} product={Prod}></c-product-tile>
+                        </lightning-layout-item>
+                    </template>
+                </template>
+            </lightning-layout>
+        <div class="slds-box slds-align_absolute-center" style="background-color: lightgray;">
+            <c-pagination-comp onprevious={previousRecords}  onnext={nextRecords}></c-pagination-comp>
+        </div>
+    </div>
+</template>
