@@ -20,17 +20,15 @@ Data Model
 
 OWD Settings for objects
 
-Sr.No	  Object Name	        OWD	
-1	      Account	            Private	
-2	      Contact	            Controlled By Parent	
-3	      Order	              Private	
-4	      Order line	        Controlled By Parent	
-5	      Product	            Public Read Only	
-6	      Account Request	    Public Read Only	
-7	      Address Book	      Private	
-8	      Payment	            Private	
-9	      Coupons	            Public Read Only	
-10	    Product Offers	    Controlled By Parent	
-11	    Product Images	    Controlled By Parent	
-12	    Categories	        Public Read Only	
-13	    Product Categories  Controlled By Parent	
+Account - Private, Contact - Controlled By Parent	
+Order - Private	
+Order line - Controlled By Parent	
+Product - Public Read Only	
+Account Request - Public Read Only	
+Address Book - Private	
+Payment - Private	
+Coupons - Public Read Only	
+Product Offers - Controlled By Parent	
+Product Images - Controlled By Parent	
+Categories - Public Read Only	
+Product Categories - Controlled By Parent	
