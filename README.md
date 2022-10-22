@@ -1,5 +1,5 @@
 # E-Commerce-Website
-Online shopping website built on salesforce CRM with digitalized experience of community cloud where user can buy products based on categories, add the products to cart and place an order with cash on delivery option.
+Online shopping website built on salesforce CRM with digitalized experience of community cloud where user can search products based on categories, wishlist a product, give ratings, add the products to cart and place an order with cash on delivery option.
 
 Data Model
 1.	Account - Standard Salesforce Component which will be used as the Parent of End Customer ( Community User )
@@ -20,15 +20,4 @@ Data Model
 
 OWD Settings for objects
 
-Account - Private, Contact - Controlled By Parent	
-Order - Private	
-Order line - Controlled By Parent	
-Product - Public Read Only	
-Account Request - Public Read Only	
-Address Book - Private	
-Payment - Private	
-Coupons - Public Read Only	
-Product Offers - Controlled By Parent	
-Product Images - Controlled By Parent	
-Categories - Public Read Only	
-Product Categories - Controlled By Parent	
+Account - Private, Contact - Controlled By Parent, Order - Private, Order line - Controlled By Parent,	Product - Public Read Only,	Account Request - Public Read Only,	Address Book - Private,	Payment - Private,	Coupons - Public Read Only,	Product Offers - Controlled By Parent,	Product Images - Controlled By Parent,	Categories - Public Read Only,	Product Categories - Controlled By Parent.	
